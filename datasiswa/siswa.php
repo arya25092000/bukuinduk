@@ -1,0 +1,98 @@
+<?php
+require 'functions.php';
+$siswa = query("SELECT * from tbl_siswa");
+?>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Halaman Admin</title>
+</head>
+
+<body>
+
+    <h1>Buku Induk Siswa</h1>
+
+    <a href="input.php">Tambah data siswa</a>
+    <br><br>
+
+    <table border="1" cellpading="10" cellspacing="0">
+
+        <tr>
+            <th>No.</th>
+            <th>Aksi</th>
+            <th>Foto</th>
+            <th>Nama</th>
+            <th>NISN</th>
+            <th>Tempat Lahir</th>
+            <th>Tanggal Lahir</th>
+            <th>Jenis Kelamin</th>
+            <th>Agama</th>
+            <th>Anak ke</th>
+            <th>Status dalam Keluarga</th>
+            <th>Alamat</th>
+            <th>Telepon</th>
+            <th>Diterima di sekolah ini kelas</th>
+            <th>Sekolah Asal</th>
+            <th>Ijazah</th>
+            <th>SKHUN</th>
+            <th>Orang Tua</th>
+            <th>Alamat Orang Tua</th>
+            <th>Pekerjaan Orang Tua</th>
+            <th>Nama Wali</th>
+            <th>Alamat Wali</th>
+            <th>Telepon Wali</th>
+            <th>Pekerjaan Wali</th>
+            <th>Mutasi</th>
+            <th>Tahun Masuk</th>
+            <th>Alumni</th>
+        </tr>
+
+
+        <?php $i = 1; ?>
+        <?php foreach ($siswa as $row) : ?>
+            <tr>
+                <td><?= $i; ?></td>
+                <td>
+                    <a href="">ubah</a>
+                    <a href="">hapus</a>
+                </td>
+                <td><img src="img/<?= $row["foto"]; ?>" width="50"></td>
+                <td><?= $row["nama"]; ?></td>
+                <td><?= $row["nisn"]; ?></td>
+                <td><?= $row["tempat lahir"]; ?></td>
+                <td><?= $row["tanggal lahir"]; ?></td>
+                <td><?= $row["gender"]; ?></td>
+                <td><?= $row["agama"]; ?></td>
+                <td><?= $row["anak ke"]; ?></td>
+                <td><?= $row["status dalam keluarga"]; ?></td>
+                <td><?= $row["alamat"]; ?></td>
+                <td><?= $row["telepon"]; ?></td>
+                <td><?= $row["diterima di sekolah ini kelas"]; ?></td>
+                <td><?= $row["sekolah asal"]; ?></td>
+                <td><?= $row["ijazah"]; ?></td>
+                <td><?= $row["skhun"]; ?></td>
+                <td><?= $row["orang tua"]; ?></td>
+                <td><?= $row["alamat orang tua"]; ?></td>
+                <td><?= $row["pekerjaan orang tua"]; ?></td>
+                <td><?= $row["nama wali"]; ?></td>
+                <td><?= $row["alamat wali"]; ?></td>
+                <td><?= $row["telepon wali"]; ?></td>
+                <td><?= $row["pekerjaan wali"]; ?></td>
+                <td><?= $row["mutasi"]; ?></td>
+                <td><?= $row["tahun masuk"]; ?></td>
+                <td><?= $row["alumni"]; ?></td>
+
+            </tr>
+            <?php $i++; ?>
+        <?php endforeach; ?>
+
+
+
+    </table>
+
+</body>
+
+</html>
