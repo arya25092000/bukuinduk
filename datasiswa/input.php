@@ -1,44 +1,28 @@
 <?php 
-
-$conn = mysqli_connect("localhost", "root", "", "sibuduwasmansa");
-
+require 'functions.php';
 if( isset($_POST["submit"])){
 
-    $foto = $_POST["foto"];
-    $nama = $_POST["nama"];
-    $nisn = $_POST["nisn"];
-    $tempatlahir = $_POST["tempat_lahir"];
-    $tanggallahir = $_POST["tanggal_lahir"];
-    $gender = $_POST["gender"];
-    $agama = $_POST["agama"];
-    $anakke = $_POST["anak_ke"];
-    $status = $_POST["status_dalam_keluarga"];
-    $alamat = $_POST["alamat"];
-    $telepon = $_POST["telepon"];
-    $diterima = $_POST["diterima_di_sekolah_ini_kelas"];
-    $sekolahasal = $_POST["sekolah_asal"];
-    $ijazah = $_POST["ijazah"];
-    $skhun = $_POST["skhun"];
-    $ortu = $_POST["orang_tua"];
-    $alamatortu = $_POST["alamat_orang_tua"];
-    $pekerjaanortu = $_POST["pekerjaan_orang_tua"];
-    $namawali = $_POST["nama_wali"];
-    $alamatwali = $_POST["alamat_wali"];
-    $teleponwali = $_POST["telepon_wali"];
-    $pekerjaanwali = $_POST["pekerjaan_wali"];
-    $mutasi = $_POST["mutasi"];
-    $tahunmasuk = $_POST["tahun_masuk"];
-    $alumni = $_POST["alumni"];
+    if( input($_POST) > 0) {
+        echo "
+            <script>
+                alert('data berhasil diinput!');
+                document.location.href = 'siswa.php';
+            </script>
+        ";
+    } else {
+        echo "
+            <script>
+                alert('data gagal diinput!');
+                document.location.href = 'siswa.php';
+            </script>";
+    }
 
-    $query = "INSERT INTO tbl_siswa 
-                VALUES
-               ('', '$foto', '$nama', '$nisn', '$tempatlahir', '$tanggallahir',
-               '$gender', '$agama', '$anakke', '$status', '$alamat',
-               '$telepon', '$diterima', '$sekolahasal', '$ijazah', '$skhun',
-               '$ortu', '$alamatortu', '$pekerjaanortu', '$namawali', '$alamatwali',
-               '$teleponwali', '$pekerjaanwali', '$mutasi', '$tahunmasuk', '$alumni')
-            ";
-    mysqli_query($conn, $query);
+    
+
+   
+
+
+
 }
 ?>
 <!DOCTYPE html>

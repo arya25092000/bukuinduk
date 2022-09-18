@@ -56,8 +56,9 @@ $siswa = query("SELECT * from tbl_siswa");
             <tr>
                 <td><?= $i; ?></td>
                 <td>
-                    <a href="">ubah</a>
-                    <a href="">hapus</a>
+                    <a href="ubah.php?id=<?= $row["id"]; ?>">ubah</a>
+                    <a href="hapus.php?id=<?= $row["id"]; ?>" 
+                    onclick="return confirm('Yakin ingin menghapus?')">hapus</a>
                 </td>
                 <td><img src="img/<?= $row["foto"]; ?>" width="50"></td>
                 <td><?= $row["nama"]; ?></td>
