@@ -126,4 +126,15 @@ function ubah($data) {
     return mysqli_affected_rows($conn);
 }
 
+function cari($keyword){
+    $query = "SELECT * FROM tbl_siswa 
+                WHERE
+              nama LIKE '%$keyword%' OR 
+              nisn LIKE '%$keyword%' OR
+              agama LIKE '%$keyword%' OR
+              alumni LIKE '%$keyword%' 
+            ";
+    return query($query);
+}
+
 ?>

@@ -1,6 +1,11 @@
 <?php
 require 'functions.php';
 $siswa = query("SELECT * from tbl_siswa");
+
+if (isset($_POST["cari"])) {
+    $siswa = cari($_POST["keyword"]);
+}
+
 ?>
 
 
@@ -17,6 +22,17 @@ $siswa = query("SELECT * from tbl_siswa");
 
     <a href="input.php">Tambah data siswa</a>
     <br><br>
+
+    <form action="" method="post">
+
+        <input type="text" name="keyword" size="40" autofocus 
+        placeholder="Masukkan Keyword" autocomplete="off">
+        <button type="submit" name="cari">Cari!</button>
+
+
+    </form>
+
+    <br>
 
     <table border="1" cellpading="10" cellspacing="0">
 
