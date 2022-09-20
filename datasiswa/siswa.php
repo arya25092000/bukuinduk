@@ -79,27 +79,27 @@ if (isset($_POST["cari"])) {
                 <td><img src="img/<?= $row["foto"]; ?>" width="50"></td>
                 <td><?= $row["nama"]; ?></td>
                 <td><?= $row["nisn"]; ?></td>
-                <td><?= $row["tempat lahir"]; ?></td>
-                <td><?= $row["tanggal lahir"]; ?></td>
+                <td><?= $row["tempat_lahir"]; ?></td>
+                <td><?= $row["tanggal_lahir"]; ?></td>
                 <td><?= $row["gender"]; ?></td>
                 <td><?= $row["agama"]; ?></td>
-                <td><?= $row["anak ke"]; ?></td>
-                <td><?= $row["status dalam keluarga"]; ?></td>
+                <td><?= $row["anak_ke"]; ?></td>
+                <td><?= $row["status_dalam_keluarga"]; ?></td>
                 <td><?= $row["alamat"]; ?></td>
                 <td><?= $row["telepon"]; ?></td>
-                <td><?= $row["diterima di sekolah ini kelas"]; ?></td>
-                <td><?= $row["sekolah asal"]; ?></td>
+                <td><?= $row["diterima_di_sekolah_ini_kelas"]; ?></td>
+                <td><?= $row["sekolah_asal"]; ?></td>
                 <td><?= $row["ijazah"]; ?></td>
                 <td><?= $row["skhun"]; ?></td>
-                <td><?= $row["orang tua"]; ?></td>
-                <td><?= $row["alamat orang tua"]; ?></td>
-                <td><?= $row["pekerjaan orang tua"]; ?></td>
-                <td><?= $row["nama wali"]; ?></td>
-                <td><?= $row["alamat wali"]; ?></td>
-                <td><?= $row["telepon wali"]; ?></td>
-                <td><?= $row["pekerjaan wali"]; ?></td>
+                <td><?= $row["orang_tua"]; ?></td>
+                <td><?= $row["alamat_orang_tua"]; ?></td>
+                <td><?= $row["pekerjaan_orang_tua"]; ?></td>
+                <td><?= $row["nama_wali"]; ?></td>
+                <td><?= $row["alamat_wali"]; ?></td>
+                <td><?= $row["telepon_wali"]; ?></td>
+                <td><?= $row["pekerjaan_wali"]; ?></td>
                 <td><?= $row["mutasi"]; ?></td>
-                <td><?= $row["tahun masuk"]; ?></td>
+                <td><?= $row["tahun_masuk"]; ?></td>
                 <td><?= $row["alumni"]; ?></td>
 
             </tr>

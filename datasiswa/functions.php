@@ -97,7 +97,7 @@ function ubah($data) {
                 nama = '$nama',
                 nisn = '$nisn',
                 tempatlahir = '$tempatlahir',
-                tanggallahir = '$tanggallahir'
+                tanggallahir = '$tanggallahir',
                 gender = '$gender',
                 agama = '$agama',
                 anakke = '$anakke',
@@ -132,7 +132,8 @@ function cari($keyword){
               nama LIKE '%$keyword%' OR 
               nisn LIKE '%$keyword%' OR
               agama LIKE '%$keyword%' OR
-              alumni LIKE '%$keyword%' 
+              alumni LIKE '%$keyword%' OR
+              tahunmasuk LIKE '%$keyword%'
             ";
     return query($query);
 }

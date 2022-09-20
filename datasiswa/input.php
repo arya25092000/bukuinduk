@@ -48,12 +48,12 @@ if( isset($_POST["submit"])){
                 <input type="text" name="nisn" id="nisn">
             </li>
             <li>
-                <label for="tempat lahir">Tempat Lahir : </label>
-                <input type="text" name="tempat lahir" id="tempat lahir">
+                <label for="tempat_lahir">Tempat Lahir : </label>
+                <input type="text" name="tempat_lahir" id="tempat_lahir">
             </li>
             <li>
-                <label for="tanggal lahir">Tanggal Lahir : </label>
-                <input type="date" name="tanggal lahir" id="tanggal lahir">
+                <label for="tanggal_lahir">Tanggal Lahir : </label>
+                <input type="date" name="tanggal_lahir" id="tanggal_lahir">
             </li>
             <li>
                 <label for="gender">Jenis Kelamin : </label>
@@ -64,12 +64,12 @@ if( isset($_POST["submit"])){
                 <input type="text" name="agama" id="agama">
             </li>
             <li>
-                <label for="anak ke">Anak ke : </label>
-                <input type="text" name="anak ke" id="anak ke">
+                <label for="anak_ke">Anak ke : </label>
+                <input type="text" name="anak_ke" id="anak_ke">
             </li>
             <li>
-                <label for="status dalam keluarga">Status dalam Keluarga : </label>
-                <input type="text" name="status dalam keluarga" id="status dalam keluarga">
+                <label for="status_dalam_keluarga">Status dalam Keluarga : </label>
+                <input type="text" name="status_dalam_keluarga" id="status_dalam_keluarga">
             </li>
             <li>
                 <label for="alamat">Alamat : </label>
@@ -80,12 +80,12 @@ if( isset($_POST["submit"])){
                 <input type="text" name="telepon" id="telepon">
             </li>
             <li>
-                <label for="diterima di sekolah ini kelas">Diterima di sekolah ini kelas : </label>
-                <input type="text" name="diterima di sekolah ini kelas" id="diterima di sekolah ini kelas">
+                <label for="diterima_di_sekolah_ini_kelas">Diterima di sekolah ini kelas : </label>
+                <input type="text" name="diterima_di_sekolah_ini_kelas" id="diterima_di_sekolah_ini_kelas">
             </li>
             <li>
-                <label for="sekolah asal">Sekolah Asal: </label>
-                <input type="text" name="sekolah asal" id="sekolah asal">
+                <label for="sekolah_asal">Sekolah Asal: </label>
+                <input type="text" name="sekolah_asal" id="sekolah_asal">
             </li>
             <li>
                 <label for="ijazah">Ijazah: </label>
@@ -96,40 +96,40 @@ if( isset($_POST["submit"])){
                 <input type="text" name="skhun" id="skhun">
             </li>
             <li>
-                <label for="orang tua">Orang Tua: </label>
-                <input type="text" name="orang tua" id="orang tua">
+                <label for="orang_tua">Orang Tua: </label>
+                <input type="text" name="orang_tua" id="orang_tua">
             </li>
             <li>
-                <label for="alamat orang tua">Alamat Orang Tua: </label>
-                <input type="text" name="alamat orang tua" id="alamat orang tua">
+                <label for="alamat_orang_tua">Alamat Orang Tua: </label>
+                <input type="text" name="alamat_orang_tua" id="alamat_orang_tua">
             </li>
             <li>
-                <label for="pekerjaan orang tua">Pekerjaan Orang Tua: </label>
-                <input type="text" name="pekerjaan orang tua" id="pekerjaan orang tua">
+                <label for="pekerjaan_orang_tua">Pekerjaan Orang Tua: </label>
+                <input type="text" name="pekerjaan_orang_tua" id="pekerjaan_orang_tua">
             </li>
             <li>
-                <label for="nama wali">Nama Wali: </label>
-                <input type="text" name="nama wali" id="nama wali">
+                <label for="nama_wali">Nama Wali: </label>
+                <input type="text" name="nama_wali" id="nama_wali">
             </li>
             <li>
-                <label for="alamat wali">Alamat Wali : </label>
-                <input type="text" name="alamat wali" id="alamat wali">
+                <label for="alamat_wali">Alamat Wali : </label>
+                <input type="text" name="alamat_wali" id="alamat_wali">
             </li>
             <li>
-                <label for="telepon wali">Telepon Wali: </label>
-                <input type="text" name="telepon wali" id="telepon wali">
+                <label for="telepon_wali">Telepon Wali: </label>
+                <input type="text" name="telepon_wali" id="telepon_wali">
             </li>
             <li>
-                <label for="pekerjaan wali">Pekerjaan Wali: </label>
-                <input type="text" name="pekerjaan wali" id="pekerjaan wali">
+                <label for="pekerjaan_wali">Pekerjaan Wali: </label>
+                <input type="text" name="pekerjaan_wali" id="pekerjaan_wali">
             </li>
             <li>
                 <label for="mutasi">Mutasi: </label>
                 <input type="text" name="mutasi" id="mutasi">
             </li>
             <li>
-                <label for="tahun masuk">Tahun Masuk: </label>
-                <input type="text" name="tahun masuk" id="tahun masuk">
+                <label for="tahun_masuk">Tahun Masuk: </label>
+                <input type="text" name="tahun_masuk" id="tahun_masuk">
             </li>
             <li>
                 <label for="alumni">Alumni: </label>

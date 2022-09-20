@@ -3,7 +3,7 @@ require 'functions.php';
 
 $id = $_GET["id"];
 
-$siswa = query("SELECT * FROM tbl_siswa WHERE id = $id")[0];
+$siswaubah = query("SELECT * FROM tbl_siswa WHERE id = $id")[0];
 
 
 if( isset($_POST["submit"])){
@@ -45,127 +45,127 @@ if( isset($_POST["submit"])){
             <li>
                 <label for="foto">Foto : </label>
                 <input type="text" name="foto" id="foto"
-                value="<?= $siswa["foto"]; ?>">
+                value="<?= $siswaubah["foto"]; ?>">
             </li>
             <li>
                 <label for="nama">Nama : </label>
                 <input type="text" name="nama" id="nama"
-                value="<?= $siswa["nama"]; ?>">
+                value="<?= $siswaubah["nama"]; ?>">
             </li>
             <li>
                 <label for="nisn">NISN : </label>
                 <input type="text" name="nisn" id="nisn"
-                value="<?= $siswa["nisn"]; ?>">
+                value="<?= $siswaubah["nisn"]; ?>">
             </li>
             <li>
-                <label for="tempat lahir">Tempat Lahir : </label>
-                <input type="text" name="tempat lahir" id="tempat lahir"
-                value="<?= $siswa["tempat lahir"]; ?>">
+                <label for="tempat_lahir">Tempat Lahir : </label>
+                <input type="text" name="tempat_lahir" id="tempat_lahir"
+                value="<?= $siswaubah["tempat_lahir"]; ?>">
             </li>
             <li>
-                <label for="tanggal lahir">Tanggal Lahir : </label>
-                <input type="date" name="tanggal lahir" id="tanggal lahir"
-                value="<?= $siswa["tanggal lahir"]; ?>">
+                <label for="tanggal_lahir">Tanggal Lahir : </label>
+                <input type="date" name="tanggal_lahir" id="tanggal_lahir"
+                value="<?= $siswaubah["tanggal_lahir"]; ?>">
             </li>
             <li>
                 <label for="gender">Jenis Kelamin : </label>
                 <input type="text" name="gender" id="gender"
-                value="<?= $siswa["gender"]; ?>">
+                value="<?= $siswaubah["gender"]; ?>">
             </li>
             <li>
                 <label for="agama">Agama : </label>
                 <input type="text" name="agama" id="agama"
-                value="<?= $siswa["agama"]; ?>">
+                value="<?= $siswaubah["agama"]; ?>">
             </li>
             <li>
-                <label for="anak ke">Anak ke : </label>
-                <input type="text" name="anak ke" id="anak ke"
-                value="<?= $siswa["anak ke"]; ?>">
+                <label for="anak_ke">Anak ke : </label>
+                <input type="text" name="anak_ke" id="anak_ke"
+                value="<?= $siswaubah["anak_ke"]; ?>">
             </li>
             <li>
-                <label for="status dalam keluarga">Status dalam Keluarga : </label>
-                <input type="text" name="status dalam keluarga" id="status dalam keluarga"
-                value="<?= $siswa["status dalam keluarga"]; ?>">
+                <label for="status_dalam_keluarga">Status dalam Keluarga : </label>
+                <input type="text" name="status_dalam_keluarga" id="status_dalam_keluarga"
+                value="<?= $siswaubah["status_dalam_keluarga"]; ?>">
             </li>
             <li>
                 <label for="alamat">Alamat : </label>
                 <input type="text" name="alamat" id="alamat"
-                value="<?= $siswa["alamat"]; ?>">
+                value="<?= $siswaubah["alamat"]; ?>">
             </li>
             <li>
                 <label for="telepon">Telepon : </label>
                 <input type="text" name="telepon" id="telepon"
-                value="<?= $siswa["telepon"]; ?>">
+                value="<?= $siswaubah["telepon"]; ?>">
             </li>
             <li>
-                <label for="diterima di sekolah ini kelas">Diterima di sekolah ini kelas : </label>
-                <input type="text" name="diterima di sekolah ini kelas" id="diterima di sekolah ini kelas"
-                value="<?= $siswa["diterima di sekolah ini kelas"]; ?>">
+                <label for="diterima_di_sekolah_ini_kelas">Diterima di sekolah ini kelas : </label>
+                <input type="text" name="diterima_di_sekolah_ini_kelas" id="diterima_di_sekolah_ini_kelas"
+                value="<?= $siswaubah["diterima_di_sekolah_ini_kelas"]; ?>">
             </li>
             <li>
-                <label for="sekolah asal">Sekolah Asal: </label>
-                <input type="text" name="sekolah asal" id="sekolah asal"
-                value="<?= $siswa["sekolah asal"]; ?>">
+                <label for="sekolah_asal">Sekolah Asal: </label>
+                <input type="text" name="sekolah_asal" id="sekolah_asal"
+                value="<?= $siswaubah["sekolah_asal"]; ?>">
             </li>
             <li>
                 <label for="ijazah">Ijazah: </label>
                 <input type="text" name="ijazah" id="ijazah"
-                value="<?= $siswa["ijazah"]; ?>">
+                value="<?= $siswaubah["ijazah"]; ?>">
             </li>
             <li>
                 <label for="skhun">SKHUN: </label>
                 <input type="text" name="skhun" id="skhun"
-                value="<?= $siswa["skhun"]; ?>">
+                value="<?= $siswaubah["skhun"]; ?>">
             </li>
             <li>
-                <label for="orang tua">Orang Tua: </label>
-                <input type="text" name="orang tua" id="orang tua"
-                value="<?= $siswa["orang tua"]; ?>">
+                <label for="orang_tua">Orang Tua: </label>
+                <input type="text" name="orang_tua" id="orang_tua"
+                value="<?= $siswaubah["orang_tua"]; ?>">
             </li>
             <li>
-                <label for="alamat orang tua">Alamat Orang Tua: </label>
-                <input type="text" name="alamat orang tua" id="alamat orang tua"
-                value="<?= $siswa["alamat orang tua"]; ?>">
+                <label for="alamat_orang_tua">Alamat Orang Tua: </label>
+                <input type="text" name="alamat_orang_tua" id="alamat_orang_tua"
+                value="<?= $siswaubah["alamat_orang_tua"]; ?>">
             </li>
             <li>
-                <label for="pekerjaan orang tua">Pekerjaan Orang Tua: </label>
-                <input type="text" name="pekerjaan orang tua" id="pekerjaan orang tua"
-                value="<?= $siswa["pekerjaan orang tua"]; ?>">
+                <label for="pekerjaan_orang_tua">Pekerjaan Orang Tua: </label>
+                <input type="text" name="pekerjaan_orang_tua" id="pekerjaan_orang_tua"
+                value="<?= $siswaubah["pekerjaan_orang_tua"]; ?>">
             </li>
             <li>
-                <label for="nama wali">Nama Wali: </label>
-                <input type="text" name="nama wali" id="nama wali"
-                value="<?= $siswa["nama wali"]; ?>">
+                <label for="nama_wali">Nama Wali: </label>
+                <input type="text" name="nama_wali" id="nama_wali"
+                value="<?= $siswaubah["nama_wali"]; ?>">
             </li>
             <li>
-                <label for="alamat wali">Alamat Wali : </label>
-                <input type="text" name="alamat wali" id="alamat wali"
-                value="<?= $siswa["alamat wali"]; ?>">
+                <label for="alamat_wali">Alamat Wali : </label>
+                <input type="text" name="alamat_wali" id="alamat_wali"
+                value="<?= $siswaubah["alamat_wali"]; ?>">
             </li>
             <li>
-                <label for="telepon wali">Telepon Wali: </label>
-                <input type="text" name="telepon wali" id="telepon wali"
-                value="<?= $siswa["telepon wali"]; ?>">
+                <label for="telepon_wali">Telepon Wali: </label>
+                <input type="text" name="telepon_wali" id="telepon_wali"
+                value="<?= $siswaubah["telepon_wali"]; ?>">
             </li>
             <li>
-                <label for="pekerjaan wali">Pekerjaan Wali: </label>
-                <input type="text" name="pekerjaan wali" id="pekerjaan wali"
-                value="<?= $siswa["pekerjaan wali"]; ?>">
+                <label for="pekerjaan_wali">Pekerjaan Wali: </label>
+                <input type="text" name="pekerjaan_wali" id="pekerjaan_wali"
+                value="<?= $siswaubah["pekerjaan_wali"]; ?>">
             </li>
             <li>
                 <label for="mutasi">Mutasi: </label>
                 <input type="text" name="mutasi" id="mutasi"
-                value="<?= $siswa["mutasi"]; ?>">
+                value="<?= $siswaubah["mutasi"]; ?>">
             </li>
             <li>
-                <label for="tahun masuk">Tahun Masuk: </label>
-                <input type="text" name="tahun masuk" id="tahun masuk"
-                value="<?= $siswa["tahun masuk"]; ?>">
+                <label for="tahun_masuk">Tahun Masuk: </label>
+                <input type="text" name="tahun_masuk" id="tahun_masuk"
+                value="<?= $siswaubah["tahun_masuk"]; ?>">
             </li>
             <li>
                 <label for="alumni">Alumni: </label>
                 <input type="text" name="alumni" id="alumni"
-                value="<?= $siswa["alumni"]; ?>">
+                value="<?= $siswaubah["alumni"]; ?>">
             </li>
             <li>
                 <button type="submit" name="submit"> Ubah Data!</button>
