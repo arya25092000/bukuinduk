@@ -1,5 +1,5 @@
 <?php // koneksi ke database
-$conn = mysqli_connect("localhost", "root", "", "sibuduwasmansa");
+$conn = mysqli_connect("localhost", "root", "", "buku_induk_siswa_digital");
 
 function query($query)
 {
@@ -15,8 +15,6 @@ function query($query)
 function input($data){
     global $conn;
 
-    $id = $data["id"];
-    $foto = htmlspecialchars($data["foto"]);
     $nama = htmlspecialchars($data["nama"]);
     $nisn = htmlspecialchars($data["nisn"]);
     $tempatlahir = htmlspecialchars($data["tempat_lahir"]);
@@ -31,9 +29,9 @@ function input($data){
     $sekolahasal = htmlspecialchars($data["sekolah_asal"]);
     $ijazah = htmlspecialchars($data["ijazah"]);
     $skhun = htmlspecialchars($data["skhun"]);
-    $ortu = htmlspecialchars($data["orang_tua"]);
-    $alamatortu = htmlspecialchars($data["alamat_orang_tua"]);
-    $pekerjaanortu = htmlspecialchars($data["pekerjaan_orang_tua"]);
+    $ortu = htmlspecialchars($data["ortu"]);
+    $alamatortu = htmlspecialchars($data["alamat_ortu"]);
+    $pekerjaanortu = htmlspecialchars($data["pekerjaan_ortu"]);
     $namawali = htmlspecialchars($data["nama_wali"]);
     $alamatwali = htmlspecialchars($data["alamat_wali"]);
     $teleponwali = htmlspecialchars($data["telepon_wali"]);
@@ -42,7 +40,12 @@ function input($data){
     $tahunmasuk = htmlspecialchars($data["tahun_masuk"]);
     $alumni = htmlspecialchars($data["alumni"]);
 
-    $query = "INSERT INTO tbl_siswa 
+    $foto = upload();
+    if (!$foto ) {
+        return false;
+    }
+
+    $query = "INSERT INTO siswa 
                 VALUES
                ('', '$foto', '$nama', '$nisn', '$tempatlahir', '$tanggallahir',
                  '$gender', '$agama', '$anakke', '$status', '$alamat',
@@ -55,9 +58,54 @@ function input($data){
     return mysqli_affected_rows($conn);
 }
 
+function upload() {
+    
+    $namaFile = $_FILES['foto']['name'];
+    $ukuranFile = $_FILES['foto']['size'];
+    $error = $_FILES['foto']['error'];
+    $tmpName = $_FILES['foto']['tmp_name'];
+
+    if ($error === 4){
+        echo "<script>
+                alert('pilih gambar terlebih dahulu!')        
+              </script>";
+        return false;
+    }
+
+    $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiGambar = explode('.', $namaFile);
+    $ekstensiGambar = strtolower(end($ekstensiGambar));
+    
+    if(!in_array($ekstensiGambar, $ekstensiGambarValid)){
+        echo "<script>
+                alert('yang upload bukan gambar!')        
+              </script>";
+        return false;
+    }
+
+    if( $ukuranFile > 1000000) {
+        "<script>
+            alert('ukuran gambar terlalu besar!')        
+         </script>";
+        return false;
+    }
+
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= '.';
+    $namaFileBaru .= $ekstensiGambar;
+    
+    move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
+
+    return $namaFileBaru;
+
+
+
+
+}
+
 function hapus($id) {
     global $conn;
-    mysqli_query($conn, "DELETE FROM tbl_siswa WHERE id = $id");
+    mysqli_query($conn, "DELETE FROM siswa WHERE id = $id");
 
     return mysqli_affected_rows($conn);
 }
@@ -66,7 +114,7 @@ function ubah($data) {
     global $conn;
 
     $id = $data["id"];
-    $foto = htmlspecialchars($data["foto"]);
+    $fotoLama = htmlspecialchars($data["fotoLama"]);
     $nama = htmlspecialchars($data["nama"]);
     $nisn = htmlspecialchars($data["nisn"]);
     $tempatlahir = htmlspecialchars($data["tempat_lahir"]);
@@ -81,9 +129,9 @@ function ubah($data) {
     $sekolahasal = htmlspecialchars($data["sekolah_asal"]);
     $ijazah = htmlspecialchars($data["ijazah"]);
     $skhun = htmlspecialchars($data["skhun"]);
-    $ortu = htmlspecialchars($data["orang_tua"]);
-    $alamatortu = htmlspecialchars($data["alamat_orang_tua"]);
-    $pekerjaanortu = htmlspecialchars($data["pekerjaan_orang_tua"]);
+    $ortu = htmlspecialchars($data["ortu"]);
+    $alamatortu = htmlspecialchars($data["alamat_ortu"]);
+    $pekerjaanortu = htmlspecialchars($data["pekerjaan_ortu"]);
     $namawali = htmlspecialchars($data["nama_wali"]);
     $alamatwali = htmlspecialchars($data["alamat_wali"]);
     $teleponwali = htmlspecialchars($data["telepon_wali"]);
@@ -92,31 +140,37 @@ function ubah($data) {
     $tahunmasuk = htmlspecialchars($data["tahun_masuk"]);
     $alumni = htmlspecialchars($data["alumni"]);
 
-    $query = "UPDATE tbl_siswa SET
+    if( $_FILES['foto']['error'] === 4) {
+        $foto = $fotoLama;
+    } else {
+        $foto = upload();
+    }
+
+  $query = "UPDATE siswa SET
                 foto = '$foto',
                 nama = '$nama',
                 nisn = '$nisn',
-                tempatlahir = '$tempatlahir',
-                tanggallahir = '$tanggallahir',
+                tempat_lahir = '$tempatlahir',
+                tanggal_lahir = '$tanggallahir',
                 gender = '$gender',
                 agama = '$agama',
-                anakke = '$anakke',
-                stats = '$status',
+                anak_ke = '$anakke',
+                status_dalam_keluarga = '$status',
                 alamat = '$alamat',
                 telepon = '$telepon',
-                diterima = '$diterima',
-                sekolahasal = '$sekolahasal',
+                diterima_di_sekolah_ini_kelas = '$diterima',
+                sekolah_asal = '$sekolahasal',
                 ijazah = '$ijazah',
                 skhun = '$skhun',
                 ortu = '$ortu',
-                alamatortu = '$alamatortu',
-                pekerjaanortu = '$pekerjaanortu',
-                namawali = '$namawali',
-                alamatwali = '$alamatwali',
-                teleponwali = '$teleponwali',
-                pekerjaanwali = '$pekerjaanwali',
+                alamat_ortu = '$alamatortu',
+                pekerjaan_ortu = '$pekerjaanortu',
+                nama_wali = '$namawali',
+                alamat_wali = '$alamatwali',
+                telepon_wali = '$teleponwali',
+                pekerjaan_wali = '$pekerjaanwali',
                 mutasi = '$mutasi',
-                tahunmasuk = '$tahunmasuk',
+                tahun_masuk = '$tahunmasuk',
                 alumni = '$alumni'
                WHERE id = $id
                 ";
@@ -124,18 +178,53 @@ function ubah($data) {
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
+
+    
 }
 
 function cari($keyword){
-    $query = "SELECT * FROM tbl_siswa 
+    $query = "SELECT * FROM siswa
                 WHERE
               nama LIKE '%$keyword%' OR 
               nisn LIKE '%$keyword%' OR
               agama LIKE '%$keyword%' OR
               alumni LIKE '%$keyword%' OR
-              tahunmasuk LIKE '%$keyword%'
+              tahun_masuk LIKE '%$keyword%'
             ";
     return query($query);
+}
+
+function registrasi($data) {
+    global $conn;
+
+    $username = strtolower(stripslashes($data["username"]));
+    $password = mysqli_real_escape_string($conn, $data["password"]);
+    $password2 = mysqli_real_escape_string($conn, $data["password2"]);
+
+    $result = mysqli_query($conn, "SELECT username FROM user WHERE
+        username = '$username'");
+    if( mysqli_fetch_assoc($result)) {
+        echo "<script>
+                alert('username yang dipilih telah terdaftar!')
+              </script>";
+        return false;
+    }
+
+    
+    if ($password !== $password2) {
+        echo "<script>
+                alert('konfirmasi password tidak sesuai!');
+            </script>";
+        return false;
+    }
+
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    
+    mysqli_query($conn, "INSERT INTO user VALUES('', '$username', '$password') ");
+
+
+    return mysqli_affected_rows($conn);
+
 }
 
 ?>

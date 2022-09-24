@@ -1,6 +1,13 @@
 <?php
+session_start();
+
+if ( !isset($_SESSION["login"])){
+    header("Location: login.php");
+    exit;
+}
+
 require 'functions.php';
-$siswa = query("SELECT * from tbl_siswa");
+$siswa = query("SELECT * from siswa");
 
 if (isset($_POST["cari"])) {
     $siswa = cari($_POST["keyword"]);
@@ -17,6 +24,9 @@ if (isset($_POST["cari"])) {
 </head>
 
 <body>
+
+<a href="logout.php">Logout</a>
+
 
     <h1>Buku Induk Siswa</h1>
 
@@ -91,9 +101,9 @@ if (isset($_POST["cari"])) {
                 <td><?= $row["sekolah_asal"]; ?></td>
                 <td><?= $row["ijazah"]; ?></td>
                 <td><?= $row["skhun"]; ?></td>
-                <td><?= $row["orang_tua"]; ?></td>
-                <td><?= $row["alamat_orang_tua"]; ?></td>
-                <td><?= $row["pekerjaan_orang_tua"]; ?></td>
+                <td><?= $row["ortu"]; ?></td>
+                <td><?= $row["alamat_ortu"]; ?></td>
+                <td><?= $row["pekerjaan_ortu"]; ?></td>
                 <td><?= $row["nama_wali"]; ?></td>
                 <td><?= $row["alamat_wali"]; ?></td>
                 <td><?= $row["telepon_wali"]; ?></td>

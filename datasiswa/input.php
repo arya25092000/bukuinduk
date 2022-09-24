@@ -1,6 +1,14 @@
 <?php 
+session_start();
+
+if ( !isset($_SESSION["login"])){
+    header("Location: login.php");
+    exit;
+}
+
 require 'functions.php';
 if( isset($_POST["submit"])){
+
 
     if( input($_POST) > 0) {
         echo "
@@ -33,11 +41,11 @@ if( isset($_POST["submit"])){
 <body>
     <h1> Input data siswa</h1>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <ul>
             <li>
                 <label for="foto">Foto : </label>
-                <input type="text" name="foto" id="foto">
+                <input type="file" name="foto" id="foto">
             </li>
             <li>
                 <label for="nama">Nama : </label>
@@ -96,16 +104,16 @@ if( isset($_POST["submit"])){
                 <input type="text" name="skhun" id="skhun">
             </li>
             <li>
-                <label for="orang_tua">Orang Tua: </label>
-                <input type="text" name="orang_tua" id="orang_tua">
+                <label for="ortu">Orang Tua: </label>
+                <input type="text" name="ortu" id="ortu">
             </li>
             <li>
-                <label for="alamat_orang_tua">Alamat Orang Tua: </label>
-                <input type="text" name="alamat_orang_tua" id="alamat_orang_tua">
+                <label for="alamat_ortu">Alamat Orang Tua: </label>
+                <input type="text" name="alamat_ortu" id="alamat_ortu">
             </li>
             <li>
-                <label for="pekerjaan_orang_tua">Pekerjaan Orang Tua: </label>
-                <input type="text" name="pekerjaan_orang_tua" id="pekerjaan_orang_tua">
+                <label for="pekerjaan_ortu">Pekerjaan Orang Tua: </label>
+                <input type="text" name="pekerjaan_ortu" id="pekerjaan_ortu">
             </li>
             <li>
                 <label for="nama_wali">Nama Wali: </label>
