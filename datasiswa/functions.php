@@ -182,15 +182,6 @@ function ubah($data) {
     
 }
 
-function cari($keyword){
-    $query = "SELECT * FROM siswa
-                WHERE
-              nama LIKE '%$keyword%' OR 
-              nisn LIKE '%$keyword%' 
-            ";
-    return query($query);
-}
-
 function registrasi($data) {
     global $conn;
 

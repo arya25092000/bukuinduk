@@ -8,19 +8,7 @@ if ( !isset($_SESSION["login"])){
 
 require 'functions.php';
 
-$jumlahDataPerHalaman = 2;
-$jumlahData = count(query("SELECT * FROM siswa "));
-$jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
-$halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
-$awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
-
-
-
-$siswa = query("SELECT * from siswa LIMIT $awalData, $jumlahDataPerHalaman");
-
-if (isset($_POST["cari"])) {
-    $siswa = cari($_POST["keyword"]);
-}
+$siswa = query("SELECT * from siswa");
 
 ?>
 
@@ -30,6 +18,10 @@ if (isset($_POST["cari"])) {
 
 <head>
     <title>Halaman Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body>
@@ -41,43 +33,11 @@ if (isset($_POST["cari"])) {
 
     <a href="input.php">Tambah data siswa</a>
     <br><br>
-
-    <form action="" method="post">
-
-        <input type="text" name="keyword" size="40" autofocus 
-        placeholder="Masukkan Keyword" autocomplete="off">
-        <button type="submit" name="cari">Cari!</button>
-
-
-    </form>
-    <br><br>
-
-    <?php if( $halamanAktif > 1) : ?>
-        <a href="?halaman=<?= $halamanAktif - 1;?>">&laquo;</a>
-    <?php endif; ?>
-
-    <?php for($i = 1; $i <= $jumlahHalaman; $i++) : ?>
-        <?php if($i == $halamanAktif) : ?>
-            <a href="?halaman=<?= $i; ?>" style="font-weight: bold; color: red; 
-            "><?= $i; ?></a>
-        <?php else : ?>
-            <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
-        <?php endif; ?>
-    <?php endfor; ?>
-
-    <?php if( $halamanAktif < $jumlahHalaman) : ?>
-        <a href="?halaman=<?= $halamanAktif + 1;?>">&raquo;</a>
-    <?php endif; ?>
-
-    <?php if( $halamanAktif ) : ?>
-        <a href="?halaman=<?= $halamanAktif;?>"></a>
-    <?php endif; ?>
-
-
+    
     <br>
 
-    <table border="1" cellpading="10" cellspacing="0">
-
+    <table id="example" border="1" cellpading="10" cellspacing="0">
+    <thead>
         <tr>
             <th>No.</th>
             <th>Aksi</th>
@@ -107,6 +67,8 @@ if (isset($_POST["cari"])) {
             <th>Tahun Masuk</th>
             <th>Alumni</th>
         </tr>
+    </thead>
+    <tbody>
 
 
         <?php $i = 1; ?>
@@ -147,10 +109,16 @@ if (isset($_POST["cari"])) {
             </tr>
             <?php $i++; ?>
         <?php endforeach; ?>
+    </tbody>
 
 
 
     </table>
+    <script>
+    $(document).ready(function () {
+    $('#example').DataTable();
+    });
+    </script>
 
 </body>
 
