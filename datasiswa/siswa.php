@@ -9,7 +9,7 @@ if ( !isset($_SESSION["login"])){
 require 'functions.php';
 
 $jumlahDataPerHalaman = 2;
-$jumlahData = count(query("SELECT * FROM siswa"));
+$jumlahData = count(query("SELECT * FROM siswa "));
 $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
 $halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
 $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
@@ -67,6 +67,10 @@ if (isset($_POST["cari"])) {
 
     <?php if( $halamanAktif < $jumlahHalaman) : ?>
         <a href="?halaman=<?= $halamanAktif + 1;?>">&raquo;</a>
+    <?php endif; ?>
+
+    <?php if( $halamanAktif ) : ?>
+        <a href="?halaman=<?= $halamanAktif;?>"></a>
     <?php endif; ?>
 
 

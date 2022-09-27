@@ -186,10 +186,7 @@ function cari($keyword){
     $query = "SELECT * FROM siswa
                 WHERE
               nama LIKE '%$keyword%' OR 
-              nisn LIKE '%$keyword%' OR
-              agama LIKE '%$keyword%' OR
-              alumni LIKE '%$keyword%' OR
-              tahun_masuk LIKE '%$keyword%'
+              nisn LIKE '%$keyword%' 
             ";
     return query($query);
 }
