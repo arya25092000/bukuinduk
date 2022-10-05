@@ -8,7 +8,28 @@ if ( !isset($_SESSION["login"])){
 
 require 'functions.php';
 
-$siswa = query("SELECT * from siswa");
+
+$jumlahDataPerHalaman = 2;
+$jumlahData = count(query("SELECT * FROM siswa"));
+$jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+$halamanAktif  = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+$awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
+
+
+$siswa = query("SELECT * from siswa LIMIT $awalData, $jumlahDataPerHalaman");
+
+// ketika salah satu tombol di klik dan cari ditekan
+if (isset($_POST["tipe"])) {
+    if ($_POST["tipe"] == "nisn") {
+        $keyword = $_POST["keyword"];
+        $query = "SELECT * FROM siswa WHERE nisn LIKE '%$keyword%'";
+        $siswa = query($query);
+    }elseif ($_POST["tipe"] == "nama") {
+        $keyword = $_POST["keyword"];
+        $query = "SELECT * FROM siswa WHERE nama LIKE '%$keyword%'";
+        $siswa = query($query);
+    }
+}
 
 ?>
 
@@ -18,13 +39,13 @@ $siswa = query("SELECT * from siswa");
 
 <head>
     <title>Halaman Admin</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 </head>
-
 <body>
+
+<table border="1" cellpading="10" cellspacing="0">
+<head>
+
+  
 
 <a href="logout.php">Logout</a>
 
@@ -33,42 +54,62 @@ $siswa = query("SELECT * from siswa");
 
     <a href="input.php">Tambah data siswa</a>
     <br><br>
-    
-    <br>
+    <form action="" method="post">
+  <input name="keyword" type="text" placeholder="Keyword" size="30" autofocus autocomplete="off" />
+  <input name="tipe" type="radio" value="nisn" />nisn 
+  <input name="tipe" type="radio" value="nama" />nama
+  <button type="submit" name="cari"> Cari </button>
+   </form>
+   <br><br>
 
-    <table id="example" border="1" cellpading="10" cellspacing="0">
-    <thead>
-        <tr>
-            <th>No.</th>
-            <th>Aksi</th>
-            <th>Foto</th>
-            <th>Nama</th>
-            <th>NISN</th>
-            <th>Tempat Lahir</th>
-            <th>Tanggal Lahir</th>
-            <th>Jenis Kelamin</th>
-            <th>Agama</th>
-            <th>Anak ke</th>
-            <th>Status dalam Keluarga</th>
-            <th>Alamat</th>
-            <th>Telepon</th>
-            <th>Diterima di sekolah ini kelas</th>
-            <th>Sekolah Asal</th>
-            <th>Ijazah</th>
-            <th>SKHUN</th>
-            <th>Orang Tua</th>
-            <th>Alamat Orang Tua</th>
-            <th>Pekerjaan Orang Tua</th>
-            <th>Nama Wali</th>
-            <th>Alamat Wali</th>
-            <th>Telepon Wali</th>
-            <th>Pekerjaan Wali</th>
-            <th>Mutasi</th>
-            <th>Tahun Masuk</th>
-            <th>Alumni</th>
-        </tr>
-    </thead>
-    <tbody>
+   <?php if($halamanAktif > 1) : ?>
+    <a href="?halaman=<?= $halamanAktif - 1; ?>">&laquo;</a>
+   <?php endif; ?>
+   
+   
+   <?php for($i = 1; $i <= $jumlahHalaman; $i++) : ?>
+    <?php if($i == $halamanAktif) : ?>
+        <a href="?halaman=<?= $i; ?>"style="font-weight: bold;"><?= $i; ?></a>
+    <?php else : ?>
+        <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+    <?php endif ; ?> 
+   <?php endfor; ?>
+
+   <?php if($halamanAktif < $jumlahHalaman) : ?>
+    <a href="?halaman=<?= $halamanAktif + 1; ?>">&raquo;</a>
+   <?php endif; ?>
+   
+
+   <br>
+            <tr>
+                <th>No.</th>
+                <th>Aksi</th>
+                <th>Foto</th>
+                <th>Nama</th>
+                <th>NISN</th>
+                <th>Tempat Lahir</th>
+                <th>Tanggal Lahir</th>
+                <th>Jenis Kelamin</th>
+                <th>Agama</th>
+                <th>Anak ke</th>
+                <th>Status dalam Keluarga</th>
+                <th>Alamat</th>
+                <th>Telepon</th>
+                <th>Diterima di sekolah ini kelas</th>
+                <th>Sekolah Asal</th>
+                <th>Ijazah</th>
+                <th>SKHUN</th>
+                <th>Orang Tua</th>
+                <th>Alamat Orang Tua</th>
+                <th>Pekerjaan Orang Tua</th>
+                <th>Nama Wali</th>
+                <th>Alamat Wali</th>
+                <th>Telepon Wali</th>
+                <th>Pekerjaan Wali</th>
+                <th>Mutasi</th>
+                <th>Tahun Masuk</th>
+                <th>Alumni</th>
+            </tr>
 
 
         <?php $i = 1; ?>
@@ -109,17 +150,13 @@ $siswa = query("SELECT * from siswa");
             </tr>
             <?php $i++; ?>
         <?php endforeach; ?>
-    </tbody>
+        </body>
+    
 
 
 
     </table>
-    <script>
-    $(document).ready(function () {
-    $('#example').DataTable();
-    });
-    </script>
-
+    
 </body>
 
 </html>
