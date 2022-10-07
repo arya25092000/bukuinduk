@@ -20,9 +20,9 @@ $siswa = query("SELECT * from siswa LIMIT $awalData, $jumlahDataPerHalaman");
 
 // ketika salah satu tombol di klik dan cari ditekan
 if (isset($_POST["tipe"])) {
-    if ($_POST["tipe"] == "nisn") {
+    if ($_POST["tipe"] == "nis") {
         $keyword = $_POST["keyword"];
-        $query = "SELECT * FROM siswa WHERE nisn LIKE '%$keyword%'";
+        $query = "SELECT * FROM siswa WHERE nis LIKE '%$keyword%'";
         $siswa = query($query);
     }elseif ($_POST["tipe"] == "nama") {
         $keyword = $_POST["keyword"];
@@ -56,7 +56,7 @@ if (isset($_POST["tipe"])) {
     <br><br>
     <form action="" method="post">
   <input name="keyword" type="text" placeholder="Keyword" size="30" autofocus autocomplete="off" />
-  <input name="tipe" type="radio" value="nisn" />nisn 
+  <input name="tipe" type="radio" value="nis" />nis 
   <input name="tipe" type="radio" value="nama" />nama
   <button type="submit" name="cari"> Cari </button>
    </form>
@@ -86,6 +86,7 @@ if (isset($_POST["tipe"])) {
                 <th>Aksi</th>
                 <th>Foto</th>
                 <th>Nama</th>
+                <th>NIS</th>
                 <th>NISN</th>
                 <th>Tempat Lahir</th>
                 <th>Tanggal Lahir</th>
@@ -123,6 +124,7 @@ if (isset($_POST["tipe"])) {
                 </td>
                 <td><img src="img/<?= $row["foto"]; ?>" width="50"></td>
                 <td><?= $row["nama"]; ?></td>
+                <td><?= $row["nis"]; ?></td>
                 <td><?= $row["nisn"]; ?></td>
                 <td><?= $row["tempat_lahir"]; ?></td>
                 <td><?= $row["tanggal_lahir"]; ?></td>

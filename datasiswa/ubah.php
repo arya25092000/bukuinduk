@@ -61,6 +61,11 @@ if( isset($_POST["submit"])){
                 value="<?= $siswa["nama"]; ?>">
             </li>
             <li>
+                <label for="nis">NIS : </label>
+                <input type="text" name="nis" id="nis"
+                value="<?= $siswa["nis"]; ?>">
+            </li>
+            <li>
                 <label for="nisn">NISN : </label>
                 <input type="text" name="nisn" id="nisn"
                 value="<?= $siswa["nisn"]; ?>">

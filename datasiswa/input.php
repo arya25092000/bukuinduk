@@ -52,6 +52,10 @@ if( isset($_POST["submit"])){
                 <input type="text" name="nama" id="nama">
             </li>
             <li>
+                <label for="nis">NIS : </label>
+                <input type="text" name="nis" id="nis">
+            </li>
+            <li>
                 <label for="nisn">NISN : </label>
                 <input type="text" name="nisn" id="nisn">
             </li>

@@ -16,6 +16,7 @@ function input($data){
     global $conn;
 
     $nama = htmlspecialchars($data["nama"]);
+    $nis = htmlspecialchars($data["nis"]);
     $nisn = htmlspecialchars($data["nisn"]);
     $tempatlahir = htmlspecialchars($data["tempat_lahir"]);
     $tanggallahir = htmlspecialchars($data["tanggal_lahir"]);
@@ -47,7 +48,7 @@ function input($data){
 
     $query = "INSERT INTO siswa 
                 VALUES
-               ('', '$foto', '$nama', '$nisn', '$tempatlahir', '$tanggallahir',
+               ('', '$foto', '$nama', '$nis', '$nisn', '$tempatlahir', '$tanggallahir',
                  '$gender', '$agama', '$anakke', '$status', '$alamat',
                  '$telepon', '$diterima', '$sekolahasal', '$ijazah', '$skhun',
                  '$ortu', '$alamatortu', '$pekerjaanortu', '$namawali', '$alamatwali',
@@ -116,6 +117,7 @@ function ubah($data) {
     $id = $data["id"];
     $fotoLama = htmlspecialchars($data["fotoLama"]);
     $nama = htmlspecialchars($data["nama"]);
+    $nis = htmlspecialchars($data["nis"]);
     $nisn = htmlspecialchars($data["nisn"]);
     $tempatlahir = htmlspecialchars($data["tempat_lahir"]);
     $tanggallahir = htmlspecialchars($data["tanggal_lahir"]);
@@ -149,6 +151,7 @@ function ubah($data) {
   $query = "UPDATE siswa SET
                 foto = '$foto',
                 nama = '$nama',
+                nis = '$nis',
                 nisn = '$nisn',
                 tempat_lahir = '$tempatlahir',
                 tanggal_lahir = '$tanggallahir',
