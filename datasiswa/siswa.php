@@ -43,11 +43,10 @@ if (isset($_POST["tipe"])) {
 <body>
 
 <table border="1" cellpading="10" cellspacing="0">
-<head>
 
   
 
-<a href="logout.php">Logout</a>
+<a href="logout.php" >Logout</a> | <a href="cetak.php" target="_blank">Cetak</a>
 
 
     <h1>Buku Induk Siswa</h1>
@@ -58,7 +57,7 @@ if (isset($_POST["tipe"])) {
   <input name="keyword" type="text" placeholder="Keyword" size="30" autofocus autocomplete="off" />
   <input name="tipe" type="radio" value="nis" />nis 
   <input name="tipe" type="radio" value="nama" />nama
-  <button type="submit" name="cari"> Cari </button>
+  <button type="submit" name="cari" > Cari </button>
    </form>
    <br><br>
 
