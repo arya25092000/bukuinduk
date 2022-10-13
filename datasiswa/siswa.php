@@ -28,6 +28,10 @@ if (isset($_POST["tipe"])) {
         $keyword = $_POST["keyword"];
         $query = "SELECT * FROM siswa WHERE nama LIKE '%$keyword%'";
         $siswa = query($query);
+    }elseif ($_POST["tipe"] == "alumni") {
+        $keyword = $_POST["keyword"];
+        $query = "SELECT * FROM siswa WHERE alumni LIKE '%$keyword%'";
+        $siswa = query($query);
     }
 }
 
@@ -57,6 +61,7 @@ if (isset($_POST["tipe"])) {
   <input name="keyword" type="text" placeholder="Keyword" size="30" autofocus autocomplete="off" />
   <input name="tipe" type="radio" value="nis" />nis 
   <input name="tipe" type="radio" value="nama" />nama
+  <input name="tipe" type="radio" value="alumni" />alumni
   <button type="submit" name="cari" > Cari </button>
    </form>
    <br><br>

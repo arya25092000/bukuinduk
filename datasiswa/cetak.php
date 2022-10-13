@@ -15,7 +15,7 @@ $html = '<!DOCTYPE html>
     <title>Daftar Mahasiswa</title>
 </head>
 <body>
-    <h1>Daftar Mahasiswa</h1>
+    <h1>Daftar Siswa SMAN 1 Ungaran</h1>
     <table border="1" cellpading="10" cellspacing="0">
 
             <tr>
