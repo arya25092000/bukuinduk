@@ -3,7 +3,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 require 'functions.php';
-$siswa = query("SELECT * from siswa");
+$siswa = query("SELECT * from siswa ORDER BY alumni ASC, nama ASC");
 
 
 $mpdf = new \Mpdf\Mpdf();
