@@ -6,7 +6,7 @@ if(isset($_COOKIE['idolo']) && isset($_COOKIE['key'])){
     $idolo = $_COOKIE['idolo'];
     $key = $_COOKIE['key'];
 
-    $result = mysqli_query($conn, "SELECT username FROM user WHERE
+    $result = mysqli_query($conn, "SELECT username FROM users WHERE
         id = $idolo");
     $row = mysqli_fetch_assoc($result);
 
