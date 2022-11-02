@@ -50,7 +50,7 @@ if (isset($_POST["tipe"])) {
 
   
 
-<a href="logout.php" >Logout</a> | <a href="cetak.php" target="_blank">Cetak</a>
+<a href="logout.php" >Logout</a>
 
 
     <h1>Buku Induk Siswa</h1>
@@ -64,6 +64,14 @@ if (isset($_POST["tipe"])) {
   <input name="tipe" type="radio" value="alumni" />alumni
   <button type="submit" name="cari" > Cari </button>
    </form>
+   <form action="cetak.php" method="POST">
+  <select name="alumni">
+      <option value="2006">2006</option>
+      <option value="2017">2017</option>
+      <option value="2015">2015</option>
+  </select>
+  <input name="cetak" value="cetak" type="submit"/>
+  </form>
    <br><br>
 
    <?php if($halamanAktif > 1) : ?>

@@ -3,7 +3,10 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 require 'functions.php';
-$siswa = query("SELECT * from siswa WHERE alumni = 2017");
+if(isset($_POST['cetak'])){
+    $alumni = $_POST['alumni'];
+  }
+$siswa = query("SELECT * FROM siswa WHERE alumni = $alumni");
 
 
 $mpdf = new \Mpdf\Mpdf();
